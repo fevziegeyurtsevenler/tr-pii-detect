@@ -1,0 +1,118 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tr-pii-detect"
+version = "0.1.0"
+description = "Türkiye'ye özgü PII (TC, IBAN, VKN, kart, telefon, plaka) için algoritma doğrulamalı tespit kütüphanesi"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "PolyForm-Noncommercial-1.0.0" }
+authors = [
+    { name = "Fevzi Ege Yurtsevenler", email = "hello@altaysec.com.tr" },
+]
+maintainers = [
+    { name = "AltaySec", email = "hello@altaysec.com.tr" },
+]
+keywords = [
+    "pii",
+    "kvkk",
+    "turkish",
+    "turkce",
+    "tckn",
+    "iban",
+    "vkn",
+    "luhn",
+    "phone",
+    "plate",
+    "redaction",
+    "llm-security",
+    "data-privacy",
+    "compliance",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Education",
+    "Topic :: Security",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Natural Language :: Turkish",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Typing :: Typed",
+]
+
+# Sıfır runtime bağımlılığı — kasıtlı tasarım kararı. Saf Python.
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+    "build>=1.0",
+    "twine>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/fevziegeyurtsevenler/tr-pii-detect"
+Repository = "https://github.com/fevziegeyurtsevenler/tr-pii-detect"
+Issues = "https://github.com/fevziegeyurtsevenler/tr-pii-detect/issues"
+"Commercial Version (AltaySec Guardian)" = "https://altaysec.com.tr/urunler/guardian"
+"AltaySec" = "https://altaysec.com.tr"
+"Author LinkedIn" = "https://www.linkedin.com/in/fevziegeyurtsevenler"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tr_pii_detect"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/tr_pii_detect",
+    "tests",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+]
+ignore = ["E501"]  # line too long — formatted by ruff format
+
+[tool.mypy]
+python_version = "3.9"
+strict = false
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
