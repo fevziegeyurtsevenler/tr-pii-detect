@@ -311,3 +311,21 @@ Katkı süreci:
 ---
 
 <sub>**tr-pii-detect** — AltaySec açık kaynak ekosisteminin bir parçasıdır. AltaySec, Türkiye'nin yapay zeka güvenliği alanında yerli savunma çözümleri geliştiren bir teknoloji girişimidir.</sub>
+
+---
+
+## İlgili AltaySec Kaynakları
+
+- 📖 [KVKK Uyumlu PII Maskeleme: LLM Trafiğinde Veri Koruma](https://altaysec.com.tr/arastirmalar/kvkk-pii-maskeleme-llm) — konunun derinlemesine Türkçe analizi
+- 🌐 [AltaySec Araştırmalar](https://altaysec.com.tr/arastirmalar/) — Türkçe yapay zekâ güvenliği yazıları
+
+## Atıf
+
+```bibtex
+@software{altaysec_tr_pii_detect_2026,
+  author = {{AltaySec}},
+  title  = {tr-pii-detect},
+  year   = {2026},
+  url    = {https://github.com/fevziegeyurtsevenler/tr-pii-detect}
+}
+```
